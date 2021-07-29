@@ -29,6 +29,11 @@ function App() {
           </Route>
         </Switch>
     
+
+
+    <footer>
+    © Power by Nicolás Cafure Design | Rooftop {new Date().getFullYear()}
+    </footer>
   </Router>
 
 
