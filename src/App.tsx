@@ -8,9 +8,22 @@ import {
   Link
 } from "react-router-dom";
 import Banner from './utils/Banner';
+import axios from 'axios';
+import {useEffect} from "react"
+import { useState } from 'react';
+import _, { shuffle } from 'underscore';
 
 
 function App() {
+
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
+.then(res=>console.log( _.shuffle(res.data.items)))
+
+  }, [])
+
 
 
   
@@ -30,7 +43,7 @@ function App() {
 
           <Route path="/">
         
-          <ImageGallery items={Banner} />
+          <ImageGallery items={Banner} showFullscreenButton={false}  showPlayButton={false}  autoPlay={true}  slideDuration={2500} slideInterval={6000}/>
 
 
 
