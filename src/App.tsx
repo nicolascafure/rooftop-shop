@@ -1,14 +1,18 @@
 import React from 'react';
 import logo from './logo.gif';
+import ImageGallery from 'react-image-gallery';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import Banner from './utils/Banner';
 
 
 function App() {
+
+
   
   return (
     <> <Router>
@@ -25,7 +29,11 @@ function App() {
           </Route>
 
           <Route path="/">
-           Home
+        
+          <ImageGallery items={Banner} />
+
+
+
           </Route>
         </Switch>
     
