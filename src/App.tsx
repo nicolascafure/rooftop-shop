@@ -1,4 +1,3 @@
-import React from 'react';
 import logo from './logo.gif';
 import ImageGallery from 'react-image-gallery';
 import {
@@ -12,9 +11,17 @@ import axios from 'axios';
 import {useEffect} from "react"
 import { useState } from 'react';
 import _, {shuffle} from 'underscore';
+import { useSelector } from 'react-redux';
+import {IStore} from "./interfaces/iShopStore";
+
+
+
 
 
 function App() {
+
+  const productsList= useSelector((state :IStore)=>state.shopStore.products)
+  console.log(productsList)
 
   const [products, setProducts] = useState([])
 
