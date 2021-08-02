@@ -11,7 +11,7 @@ import Banner from './utils/Banner';
 import axios from 'axios';
 import {useEffect} from "react"
 import { useState } from 'react';
-import _, { shuffle } from 'underscore';
+import _, {shuffle} from 'underscore';
 
 
 function App() {
@@ -20,7 +20,12 @@ function App() {
 
   useEffect(() => {
 axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
-.then(res=>console.log( _.shuffle(res.data.items)))
+.then(res=>{
+  let a = res.data.items
+  console.log( _.shuffle(a))
+
+})
+.catch(err=>console.log(err.message))
 
   }, [])
 
