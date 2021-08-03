@@ -14,20 +14,22 @@ if(product.offer===null){
 }
   return (
     <div className="product">
-        
+       <div className= "container-product-img">
       <img src={product.images[1]}></img>
-      <h1>{product.title}</h1>
+      </div> 
       {product.offer === null ? (
-        <div className="none-offer">
-          <p>{product.price}</p>
+        <div className="offer">
+          <p className="price">{product.currency} {product.price}</p>
         </div>
       ) : (
         <div className="offer">
-         <p>{product.price}</p>
-          <p>{product.offer.price}</p>
+        
+          <p className="price-offer">{product.currency} {product.offer.price}</p>
+          <p className="last-price">{product.currency} {product.price}</p>
           <p>{descuento(product)}% OFF</p>
         </div>
       )}
+         <h3 className="product-title">{product.title}</h3>
     </div>
   );
 }

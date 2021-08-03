@@ -55,10 +55,8 @@ console.log(productsHome)
         
           <ImageGallery items={Banner} showFullscreenButton={false}  showPlayButton={false}  autoPlay={true}  slideDuration={2500} slideInterval={6000}/>
 
-<div className="contenedor-products-home">
+<div className="container-products-home">
 {productsHome.map(product=><Product key={product.id}  product={product}/>)   }
-
-
 
 </div>
 
