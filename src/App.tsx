@@ -15,12 +15,13 @@ import {IStore} from "./interfaces/iShopStore";
 import { useDispatch } from 'react-redux';
 import {addProductsHome} from "./redux/actions/product";
 import Product from './components/Product';
+import Catalogo from './pages/Catalogo';
 
 function App() {
 
 const dispatch =useDispatch()
 const productsHome= useSelector((state :IStore)=>state.shopStore.products)
-console.log(productsHome)
+
 
   useEffect(() => {
  axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
@@ -48,7 +49,7 @@ console.log(productsHome)
 
         <Switch>
           <Route path="/catalogo">
-            catalogo
+           <Catalogo/>
           </Route>
 
           <Route path="/">

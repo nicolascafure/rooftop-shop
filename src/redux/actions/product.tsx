@@ -7,10 +7,10 @@ return{
   }
 }
 
-export const addProductsCatalogue = (products : IProduct)=>{
+export const addProductsCatalogue = (productsCatalogue : IProduct)=>{
   return{
-      type: "GET_PRODUCTS_CATALOGO",
-      payload: products
+      type: "GET_PRODUCTS_CATALOGUE",
+      payload: productsCatalogue
     }
   }
 

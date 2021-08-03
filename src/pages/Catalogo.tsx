@@ -1,11 +1,26 @@
-
-import { IProduct } from "../interfaces/iShopStore";
+import { addProductsCatalogue } from "../redux/actions/product";
+import { IProduct,IStore } from "../interfaces/iShopStore";
+import { useEffect } from "react";
+import axios from "axios";
+import { useDispatch } from 'react-redux';
+import { useSelector } from "react-redux";
 export interface CatalogoProps {
-  product: IProduct;
-  key: number;
+
 }
 
 const Catalogo: React.FunctionComponent<CatalogoProps> = () => {
+
+const dispatch= useDispatch()
+const productsCatalogue= useSelector((state :IStore)=>state.shopStore.productsCatalogo)
+console.log(productsCatalogue)
+
+  useEffect(() => {
+    axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items")
+   .then(res=>{
+     dispatch(addProductsCatalogue(res.data.items))
+   })
+   .catch(err=>console.log(err.message))
+     }, [dispatch])
 
 
 
@@ -25,3 +40,5 @@ return(
 
 )
 }
+
+export default Catalogo

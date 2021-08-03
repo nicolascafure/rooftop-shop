@@ -3,7 +3,7 @@ import {IState,IProduct} from "../../interfaces/iShopStore"
 
 
 type Action= {type:"GET_PRODUCTS_HOME", payload: IProduct[]}
-type ActionB= {type:"GET_PRODUCTS_CATALOGO", payload: IProduct[]}
+type ActionB= {type:"GET_PRODUCTS_CATALOGUE", payload: IProduct[]}
 
 
 const INITIAL_STATE:IState={
@@ -19,7 +19,7 @@ export const productReducer=(state=INITIAL_STATE,action: Action|ActionB)=>{
                 ...state,products:action.payload
             }
 
-            case "GET_PRODUCTS_CATALOGO":
+            case "GET_PRODUCTS_CATALOGUE":
                 return{
                     ...state,productsCatalogo:action.payload
                 }
