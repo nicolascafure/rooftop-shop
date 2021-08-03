@@ -5,6 +5,7 @@ export interface IProduct{
     currency:string,
     price:number,
     offer: any
+    images: string[]
   }
 
   export interface IState{

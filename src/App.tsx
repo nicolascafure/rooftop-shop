@@ -9,32 +9,30 @@ import {
 import Banner from './utils/Banner';
 import axios from 'axios';
 import {useEffect} from "react"
-import { useState } from 'react';
-import _, {shuffle} from 'underscore';
+import {shuffle} from 'underscore';
 import { useSelector } from 'react-redux';
 import {IStore} from "./interfaces/iShopStore";
-
-
-
-
+import { useDispatch } from 'react-redux';
+import {addProductsHome} from "./redux/actions/product";
+import Product from './components/Product';
 
 function App() {
 
-  const productsList= useSelector((state :IStore)=>state.shopStore.products)
-  console.log(productsList)
-
-  const [products, setProducts] = useState([])
+const dispatch =useDispatch()
+const productsHome= useSelector((state :IStore)=>state.shopStore.products)
+console.log(productsHome)
 
   useEffect(() => {
-axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
+ axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
 .then(res=>{
-  let a = res.data.items
-  console.log( _.shuffle(a))
-
+  dispatch(addProductsHome(res.data.items))
 })
 .catch(err=>console.log(err.message))
+  }, [dispatch])
 
-  }, [])
+  
+
+
 
 
 
@@ -57,7 +55,12 @@ axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
         
           <ImageGallery items={Banner} showFullscreenButton={false}  showPlayButton={false}  autoPlay={true}  slideDuration={2500} slideInterval={6000}/>
 
+<div className="contenedor-products-home">
+{productsHome.map(product=><Product key={product.id}  product={product}/>)   }
 
+
+
+</div>
 
           </Route>
         </Switch>
