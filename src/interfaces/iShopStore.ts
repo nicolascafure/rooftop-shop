@@ -9,7 +9,9 @@ export interface IProduct{
   }
 
   export interface IState{
-    products: IProduct[] 
+    products: IProduct[] ,
+    productsCatalogo: IProduct[]
+
 }
 
 export interface IStore{

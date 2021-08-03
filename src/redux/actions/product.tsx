@@ -7,3 +7,10 @@ return{
   }
 }
 
+export const addProductsCatalogue = (products : IProduct)=>{
+  return{
+      type: "GET_PRODUCTS_CATALOGO",
+      payload: products
+    }
+  }
+
