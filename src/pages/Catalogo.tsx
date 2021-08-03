@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from 'react-redux';
 import { useSelector } from "react-redux";
+import Product from "../components/Product";
 export interface CatalogoProps {
 
 }
@@ -27,13 +28,14 @@ console.log(productsCatalogue)
 
 return(
 
-<div className="container-catalogo">
+<div className="container-catalogue">
 
 
 
 <h1>Catalogo de productos</h1>
-
-
+<div className="container-products-catalogue">
+{productsCatalogue.map(product=><Product key={product.id}  product={product}/>)   }
+</div>
 </div>
 
 
