@@ -48,7 +48,7 @@ const productsHome= useSelector((state :IStore)=>state.shopStore.products)
 
 
         <Switch>
-          <Route path="/catalogo">
+          <Route path="/catalogo/:page">
            <Catalogo/>
           </Route>
 
