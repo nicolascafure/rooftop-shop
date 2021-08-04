@@ -1,4 +1,10 @@
 import { IProduct } from "../interfaces/iShopStore";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 export interface ProductProps {
   product: IProduct;
   key: number;
@@ -13,6 +19,7 @@ if(product.offer===null){
   }
 }
   return (
+    <Link to={`/detail/${product.id}`}>
     <div className="product">
        <div className= "container-product-img">
       <img src={product.images[1]}></img>
@@ -31,6 +38,7 @@ if(product.offer===null){
       )}
          <h3 className="product-title">{product.title}</h3>
     </div>
+    </Link>
   );
 }
 
