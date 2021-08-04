@@ -123,3 +123,7 @@ flex-wrap: wrap;
   flex-wrap: wrap;
   width: 60%;
 }
+
+.selected-page{
+  color: red;
+}

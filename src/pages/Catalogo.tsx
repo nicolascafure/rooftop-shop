@@ -62,9 +62,9 @@ return(
 </div>
 <div >   
   {Number(page)==1?null: <Link to={`/catalogo/${Number(page)-1}`}>ANTERIOR</Link>}
-         <Link to="/catalogo/1">1</Link>
-         <Link to="/catalogo/2">2</Link>
-         <Link to="/catalogo/3">3</Link>
+          <Link className={page=="1"? "selected-page":"page"}  to="/catalogo/1">1</Link>
+         <Link className={page=="2"? "selected-page":"page"} to="/catalogo/2">2</Link>
+         <Link className={page=="3"? "selected-page":"page"} to="/catalogo/3">3</Link>
          {Number(page)==3?null: <Link to={`/catalogo/${Number(page)+1}`}>SIGUIENTE</Link>}
        </div>
 </div>
