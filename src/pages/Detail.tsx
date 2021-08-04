@@ -20,16 +20,13 @@ import {
 
  
 const Detail: React.FunctionComponent<DetailProps> = () => {
-    const dispatch =useDispatch()
+  const { id } = useParams<ParamTypes>()  
+  const dispatch =useDispatch()
 const products= useSelector((state :IStore)=>state.shopStore.productsCatalogo)
-     const { id } = useParams<ParamTypes>()
-     useEffect(() => {
-        const product= products.find(product=>product.id===Number(id))
-        console.log(products)
-     }, [dispatch])
+     const product= products.find(product=>product.id===Number(id))
 
     return (  <>
-    
+    {product !==undefined ? <h1>{product.title}</h1>:null}
 
 
         </>
