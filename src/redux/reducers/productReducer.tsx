@@ -6,9 +6,11 @@ type Action= {type:"GET_PRODUCTS_HOME", payload: IProduct[]}
 type ActionB= {type:"GET_PRODUCTS_CATALOGUE", payload: IProduct[]}
 
 
+
 const INITIAL_STATE:IState={
     products: [],
-    productsCatalogo:[]
+    productsCatalogo:[],
+ 
 }
 
 

@@ -16,11 +16,15 @@ import { useDispatch } from 'react-redux';
 import {addProductsHome} from "./redux/actions/product";
 import Product from './components/Product';
 import Catalogo from './pages/Catalogo';
+import Detail from './pages/Detail';
+import {addProductsCatalogue} from "./redux/actions/product";
+
 
 function App() {
 
 const dispatch =useDispatch()
 const productsHome= useSelector((state :IStore)=>state.shopStore.products)
+
 
 
   useEffect(() => {
@@ -31,6 +35,13 @@ const productsHome= useSelector((state :IStore)=>state.shopStore.products)
 .catch(err=>console.log(err.message))
   }, [dispatch])
 
+
+  axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items")
+  .then(res=>{
+    dispatch(addProductsCatalogue(res.data.items))
+    console.log("trayendo")
+  })
+  .catch(err=>console.log(err.message))
   
 
 
@@ -53,6 +64,9 @@ const productsHome= useSelector((state :IStore)=>state.shopStore.products)
           </Route>
           <Route path="/catalogo">
            <Catalogo/>
+          </Route>
+          <Route path="/detail/:id">
+           <Detail/>
           </Route>
 
           <Route path="/">
