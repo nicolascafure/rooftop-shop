@@ -22,13 +22,10 @@ const productsCatalogue= useSelector((state :IStore)=>state.shopStore.productsCa
 const { page } = useParams<ParamTypes>()
 
 const getPage=(page:string)=>{
-if(page==="1"){
-   return productsCatalogue.slice(0,6)}else if(page==="2"){
-   return productsCatalogue.slice(6,13) } else if( page==="3"){
-    return productsCatalogue.slice(13,20)
-   }else {
-     return []
-   }
+  const ProductsPerPage =6
+  const sliceTo = ProductsPerPage* Number(page)
+  const sliceFrom = sliceTo -ProductsPerPage
+return(productsCatalogue.slice(sliceFrom,sliceTo))
 }
   useEffect(() => {
 getPage(page)
