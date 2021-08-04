@@ -26,11 +26,12 @@ const dispatch= useDispatch()
 const productsCatalogue= useSelector((state :IStore)=>state.shopStore.productsCatalogo)
 const { page } = useParams<ParamTypes>()
 
-
 const getPage=(page:string)=>{
 if(Number(page)==1){
    return productsCatalogue.slice(0,6)}else if(Number(page)==2){
-   return productsCatalogue.slice(6,11) } else{
+   return productsCatalogue.slice(6,13) } else if( Number(page)==3){
+    return productsCatalogue.slice(13,20)
+   }else {
      return []
    }
 }
@@ -59,6 +60,13 @@ return(
 <div className="container-products-catalogue">
 {getPage(page).map(product=><Product key={product.id}  product={product}/>)   }
 </div>
+<div >   
+  {Number(page)==1?null: <Link to={`/catalogo/${Number(page)-1}`}>ANTERIOR</Link>}
+         <Link to="/catalogo/1">1</Link>
+         <Link to="/catalogo/2">2</Link>
+         <Link to="/catalogo/3">3</Link>
+         {Number(page)==3?null: <Link to={`/catalogo/${Number(page)+1}`}>SIGUIENTE</Link>}
+       </div>
 </div>
 
 
