@@ -8,9 +8,19 @@ export interface IProduct{
     images: string[]
   }
 
+  export interface IQuestion{
+question :string,
+customer_name: string,
+answer: string,
+sent_at:string
+
+  }
+
   export interface IState{
     products: IProduct[] ,
-    productsCatalogo: IProduct[]
+    productsCatalogo: IProduct[],
+    questions: IQuestion[]
+    
  
 
 }
