@@ -127,3 +127,27 @@ flex-wrap: wrap;
 .selected-page{
   color: red;
 }
+
+/* detail*/
+.container-detail{
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+  border: 1px solid rgba(211, 211, 211, 0.712);
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+.flex-center{
+  display: flex;
+  justify-content: center;
+}
+.detail-data{
+  padding: 20px;
+  width: 40%;
+}
+
+.detail-img{
+  width: 60%;
+}
+
