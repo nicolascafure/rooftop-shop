@@ -7,10 +7,9 @@ import timeTo from "../utils/TimeTo";
 import discount from "../utils/Discount";
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { addQuestions } from "../redux/actions/product";
-
-
+import Question from "../components/Question";
 
 export interface DetailProps {}
 
@@ -20,28 +19,27 @@ interface ParamTypes {
 
 const Detail: React.FunctionComponent<DetailProps> = () => {
   const { id } = useParams<ParamTypes>();
-const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const products = useSelector(
-    (state: IStore) => state.shopStore.productsCatalogo);
+    (state: IStore) => state.shopStore.productsCatalogo
+  );
 
-    const questions = useSelector(
-      (state: IStore) => state.shopStore.questions);
-
+  const questions = useSelector((state: IStore) => state.shopStore.questions);
 
   const product = products.find((product) => product.id === Number(id));
 
-
-
   useEffect(() => {
-    axios.get(`https://rooftop-api-rest-frontend.herokuapp.com/questions?item_id=${id}`)
-    .then(res=>{
-      dispatch(addQuestions(res.data))
-      console.log(questions)
-    })
-    .catch(err=>console.log(err.message))
-    
-  }, [dispatch])
+    axios
+      .get(
+        `https://rooftop-api-rest-frontend.herokuapp.com/questions?item_id=${id}`
+      )
+      .then((res) => {
+        dispatch(addQuestions(res.data));
+        console.log(questions);
+      })
+      .catch((err) => console.log(err.message));
+  }, [dispatch]);
 
   return (
     <>
@@ -71,6 +69,11 @@ const dispatch = useDispatch()
               )}
             </div>
           </div>
+<div className="container-questions">
+          {questions.map((question,index)=><Question key={index} question={question}/>)}
+          </div>
+
+
         </div>
       ) : null}
     </>

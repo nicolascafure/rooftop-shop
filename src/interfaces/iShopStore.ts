@@ -9,9 +9,9 @@ export interface IProduct{
   }
 
   export interface IQuestion{
-question :string,
-customer_name: string,
-answer: string,
+    answer: string,
+    customer_name: string,
+    question :string,
 sent_at:string
 
   }
