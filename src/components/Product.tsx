@@ -5,19 +5,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import discount from "../utils/Discount";
 export interface ProductProps {
   product: IProduct;
   key: number;
 }
 
 const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
- const descuento=(product:IProduct) :number=>{
-if(product.offer===null){
-  return 0}else{
-    const a = product.offer.price / Number(product.price) *100
-    return 100- a
-  }
-}
+
   return (
     <Link to={`/detail/${product.id}`}>
     <div className="product">
@@ -33,7 +28,7 @@ if(product.offer===null){
         
           <p className="price-offer">{product.currency} {product.offer.price}</p>
           <p className="last-price">{product.currency} {product.price}</p>
-          <p>{descuento(product)}% OFF</p>
+          <p>{discount(product)}% OFF</p>
         </div>
       )}
          <h3 className="product-title">{product.title}</h3>

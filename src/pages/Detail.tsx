@@ -3,14 +3,10 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IStore } from "../interfaces/iShopStore";
 import ImageGallery from "react-image-gallery";
-import dayjs from 'dayjs'
-var relativeTime = require('dayjs/plugin/relativeTime')
-dayjs.extend(relativeTime)
-declare module 'dayjs' {
-    interface Dayjs {
-        toNow(boolean:boolean) :any
-    }
-}
+import ImgTransform from "../utils/ImgTransform";
+import timeTo from "../utils/TimeTo";
+import discount from "../utils/Discount";
+
 
 export interface DetailProps {}
 
@@ -25,45 +21,7 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
   );
   const product = products.find((product) => product.id === Number(id));
 
-  const timeTo=(product:IProduct)=>{
- 
-    if(product.offer ===null){
-      return
-    }else{
-     return  dayjs(product?.offer.expires_at).toNow(true)}
-  }
 
-
-
-
-
-  const transformarImg = (imagenes: Array<string>) => {
-    const images = [
-      {
-        original: imagenes[0],
-        thumbnail: imagenes[0],
-      },
-      {
-        original: imagenes[1],
-        thumbnail: imagenes[1],
-      },
-      {
-        original: imagenes[2],
-        thumbnail: imagenes[2],
-      },
-    ];
-    return images;
-  };
-
-  const descuento = (product: IProduct): number => {
-    if (product.offer === null) {
-      return 0;
-    } else {
-      const a = (product.offer.price / Number(product.price)) * 100;
-      return 100 - a;
-      
-    }
-  };
 
   return (
     <>
@@ -71,7 +29,7 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
         <div className="flex-center">
           <div className="container-detail">
             <div className="detail-img">
-              <ImageGallery items={transformarImg(product.images)} />
+              <ImageGallery items={ImgTransform(product.images)} />
             </div>
             <div className="detail-data">
               <h1>{product.title}</h1>
@@ -87,7 +45,7 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
                   <p className="last-price">
                     {product.currency} {product.price}
                   </p>
-                  <p>{descuento(product)}% OFF</p>
+                  <p>{discount(product)}% OFF</p>
                   <p>Offer expires in {timeTo(product)}</p>
                 </>
               )}
