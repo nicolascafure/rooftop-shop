@@ -39,7 +39,7 @@ const productsHome= useSelector((state :IStore)=>state.shopStore.products)
   axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items")
   .then(res=>{
     dispatch(addProductsCatalogue(res.data.items))
-    console.log("trayendo")
+    console.log(productsHome)
   })
   .catch(err=>console.log(err.message))
   
