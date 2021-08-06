@@ -11,7 +11,6 @@ import {
   fetchProductsHome,
 } from "./redux/services/productServices";
 
-
 function App() {
   const dispatch = useDispatch();
 
@@ -39,10 +38,11 @@ function App() {
           <Route path="/">
             <Home />
 
-            <Footer />
+            
           </Route>
         </Switch>
       </Router>
+      <Footer />
     </>
   );
 }

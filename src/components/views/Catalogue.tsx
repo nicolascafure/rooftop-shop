@@ -26,9 +26,9 @@ return(productsCatalogue.slice(sliceFrom,sliceTo))
 }
   useEffect(() => {
 getPage(page)
-console.log("cargo la page")
      })
 
+const pageNumber=[1,2,3,4,5,6,7,8,9]
 return(
 
 <div className="container-catalogue">
@@ -36,12 +36,10 @@ return(
 <div className="container-products-catalogue">
 {getPage(page).map(product=><Product key={product.id}  product={product}/>)   }
 </div>
-<div >   
-  {Number(page)===1?null: <Link to={`/catalogo/${Number(page)-1}`}>ANTERIOR</Link>}
-          <Link className={page==="1"? "selected-page":"page"}  to="/catalogo/1">1</Link>
-         <Link className={page==="2"? "selected-page":"page"} to="/catalogo/2">2</Link>
-         <Link className={page==="3"? "selected-page":"page"} to="/catalogo/3">3</Link>
-         {Number(page)===3?null: <Link to={`/catalogo/${Number(page)+1}`}>SIGUIENTE</Link>}
+<div className="pagination" >   
+  {Number(page)===1?null: <Link className="button-pagination" to={`/catalogo/${Number(page)-1}`}>{"<"}</Link>}
+{pageNumber.map(number=><Link className={Number(page)===number? "selected-page":"page"}  to={`/catalogo/${number}`}>{number}</Link>)}
+         {Number(page)===9?null: <Link className="button-pagination" to={`/catalogo/${Number(page)+1}`}>{">"}</Link>}
        </div>
 </div>
 

@@ -2,7 +2,7 @@
  
 const Footer: React.FunctionComponent= () => {
     return (    <footer>
-        © Power by Nicolás Cafure Design | Rooftop {new Date().getFullYear()}
+      <p className="text-footer"> © Power by Nicolás Cafure Design | Rooftop {new Date().getFullYear()}</p> 
         </footer> );
 }
  
