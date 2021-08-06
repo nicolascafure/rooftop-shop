@@ -8,11 +8,16 @@ declare module 'dayjs' {
     }
 }
 
-const timeTo=(product:IProduct)=>{
+ export const timeTo=(product:IProduct)=>{
     if(product.offer ===null){
       return
     }else{
      return  dayjs(product?.offer.expires_at).toNow(true)}
   }
 
-  export default timeTo
+  export const dateOffer=(product:IProduct)=>{
+    if(product.offer ===null){
+      return
+    }else{
+    return dayjs(product?.offer.expires_at).format('DD/MM/YYYY')}
+  }

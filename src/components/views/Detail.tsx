@@ -3,20 +3,16 @@ import { useSelector } from "react-redux";
 import { IStore } from "../../interfaces/iShopStore";
 import ImageGallery from "react-image-gallery";
 import ImgTransform from "../../utils/ImgTransform";
-import timeTo from "../../utils/TimeTo";
+import {timeTo} from "../../utils/Time"
 import discount from "../../utils/Discount";
-import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import Question from "../common/Question";
 import { fetchProductQuestions } from "../../redux/services/productServices";
+import Form from "../common/Form";
+import{dateOffer} from "../../utils/Time";
 
-import { useForm, SubmitHandler } from "react-hook-form";
 
-type Inputs = {
-  email: string;
-  message: string;
-};
 
 interface ParamTypes {
   id: string;
@@ -37,23 +33,8 @@ const Detail: React.FunctionComponent = () => {
   useEffect(() => {
     dispatch(fetchProductQuestions(id));
   }, [dispatch, id]);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    axios
-      .post(
-        `https://rooftop-api-rest-frontend.herokuapp.com/questions?item_id=${id}`,
-        { data }
-      )
-      .then((res) => {
-        console.log(res);
-        console.log(res.data.message);
-      });
-  };
+ 
 
   return (
     <>
@@ -61,7 +42,7 @@ const Detail: React.FunctionComponent = () => {
         <div className="flex-center">
           <div className="container-detail">
             <div className="detail-img">
-              <ImageGallery items={ImgTransform(product.images)} />
+              <ImageGallery  showPlayButton={false}  items={ImgTransform(product.images)} />
             </div>
             <div className="detail-data">
               <h1>{product.title}</h1>
@@ -78,7 +59,8 @@ const Detail: React.FunctionComponent = () => {
                     {product.currency} {product.price}
                   </p>
                   <p>{discount(product)}% OFF</p>
-                  <p>Offer expires in {timeTo(product)}</p>
+                  <p>Offer expires in {timeTo(product)} at {dateOffer(product)}</p>
+                  <button onClick={()=>console.log(dateOffer(product))}></button>
                 </>
               )}
             </div>
@@ -89,37 +71,10 @@ const Detail: React.FunctionComponent = () => {
             ))}
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label>Ingresa tu email</label>
-            <input
-              type="text"
-              {...register("email", {
-                required: true,
-                pattern:
-                  /^(([^<>()\]\\.,;:\s@"]+(\.[^<>()\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              })}
-            />
-            {errors.email?.type === "required" &&
-              "El campo de email es requerido."}
-            {errors.email?.type === "patterm" && "Ingrese un email valido."}
+          
+<Form id = {id} />
 
-            <textarea
-              placeholder="Escribi tu pregunta..."
-              {...register("message", {
-                required: true,
-                maxLength: 500,
-                minLength: 10,
-              })}
-            />
-            {errors.message?.type === "required" &&
-              "El campo de mensaje es requerido."}
-            {errors.message?.type === "maxLength" &&
-              "El mensaje no puede superar los 500 caracteres."}
-            {errors.message?.type === "minLength" &&
-              "El mensaje debe tener un minimo de 10 caracteres."}
 
-            <input type="submit" />
-          </form>
         </div>
       ) : null}
     </>

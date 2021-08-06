@@ -38,7 +38,7 @@ return(
 </div>
 <div className="pagination" >   
   {Number(page)===1?null: <Link className="button-pagination" to={`/catalogo/${Number(page)-1}`}>{"<"}</Link>}
-{pageNumber.map(number=><Link className={Number(page)===number? "selected-page":"page"}  to={`/catalogo/${number}`}>{number}</Link>)}
+{pageNumber.map(number=><Link key={number} className={Number(page)===number? "selected-page":"page"}  to={`/catalogo/${number}`}>{number}</Link>)}
          {Number(page)===9?null: <Link className="button-pagination" to={`/catalogo/${Number(page)+1}`}>{">"}</Link>}
        </div>
 </div>
