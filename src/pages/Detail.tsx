@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addQuestions } from "../redux/actions/product";
 import Question from "../components/Question";
+import { fetchProductQuestions } from "../redux/services/productServices";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 
@@ -37,15 +38,7 @@ const Detail: React.FunctionComponent = () => {
   const product = products.find((product) => product.id === Number(id));
 
   useEffect(() => {
-    axios
-      .get(
-        `https://rooftop-api-rest-frontend.herokuapp.com/questions?item_id=${id}`
-      )
-      .then((res) => {
-        dispatch(addQuestions(res.data));
-        console.log(questions);
-      })
-      .catch((err) => console.log(err.message));
+    dispatch(fetchProductQuestions(id))
   }, [dispatch]);
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
@@ -55,10 +48,10 @@ const Detail: React.FunctionComponent = () => {
       console.log(res);
       console.log(res.data.message);
     })
-   
+  
 }
   
-console.log(watch("email"))
+
   return (
     <>
       {product !== undefined ? (

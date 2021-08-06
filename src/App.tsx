@@ -1,4 +1,4 @@
-import logo from './logo.gif';
+import logo from './images/logo.gif';
 import ImageGallery from 'react-image-gallery';
 import {
   BrowserRouter as Router,
@@ -25,8 +25,6 @@ function App() {
 
 const dispatch =useDispatch()
 const productsHome= useSelector((state :IStore)=>state.shopStore.products)
-
-
 
   useEffect(() => {
 dispatch(fetchProductsHome())
