@@ -1,11 +1,11 @@
-import { IProduct } from "../interfaces/iShopStore";
+import { IProduct } from "../../interfaces/iShopStore";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import discount from "../utils/Discount";
+import discount from "../../utils/Discount";
 export interface ProductProps {
   product: IProduct;
   key: number;

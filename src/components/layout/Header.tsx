@@ -1,4 +1,4 @@
-import logo from './images/logo.gif';
+import logo from "../../images/logo.gif"
 import { Link } from 'react-router-dom';
  
 const Header: React.FunctionComponent = () => {

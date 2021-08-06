@@ -1,16 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { IStore } from "../interfaces/iShopStore";
+import { IStore} from "../../interfaces/iShopStore"
 import ImageGallery from "react-image-gallery";
-import ImgTransform from "../utils/ImgTransform";
-import timeTo from "../utils/TimeTo";
-import discount from "../utils/Discount";
+import ImgTransform from "../../utils/ImgTransform";
+import timeTo from "../../utils/TimeTo";
+import discount from "../../utils/Discount";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { addQuestions } from "../redux/actions/product";
-import Question from "../components/Question";
-import { fetchProductQuestions } from "../redux/services/productServices";
+import Question from "../common/Question";
+import { fetchProductQuestions } from "../../redux/services/productServices";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 

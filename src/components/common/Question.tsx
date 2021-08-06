@@ -1,4 +1,4 @@
-import { IQuestion } from "../interfaces/iShopStore";
+import { IQuestion } from "../../interfaces/iShopStore";
 
 export interface QuestionProps {
     question : IQuestion
@@ -13,7 +13,6 @@ const Question: React.FunctionComponent<QuestionProps> = ({question}) => {
            <p>{question.question}</p>
            <p>{question.answer}</p>
            <p>{question.sent_at}</p>
-         
         </div>
 
 

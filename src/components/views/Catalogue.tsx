@@ -1,22 +1,19 @@
 
-import { IStore } from "../interfaces/iShopStore";
+import { IStore } from "../../interfaces/iShopStore";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Product from "../components/Product";
+import Product from "../common/Product";
 import {
-  BrowserRouter as Router,
   Link,
   useParams
 } from "react-router-dom";
-export interface CatalogoProps {
 
-}
 
 interface ParamTypes {
   page: string;
 }
 
-const Catalogo: React.FunctionComponent<CatalogoProps> = () => {
+const Catalogo: React.FunctionComponent = () => {
 
 const productsCatalogue= useSelector((state :IStore)=>state.shopStore.productsCatalogo)
 const { page } = useParams<ParamTypes>()
