@@ -18,6 +18,7 @@ import Product from './components/Product';
 import Catalogo from './pages/Catalogo';
 import Detail from './pages/Detail';
 import {addProductsCatalogue} from "./redux/actions/product";
+import {fetchProductsCatalogue, fetchProductsHome} from "./redux/services/productServices"
 
 
 function App() {
@@ -28,21 +29,11 @@ const productsHome= useSelector((state :IStore)=>state.shopStore.products)
 
 
   useEffect(() => {
- axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items?limit=4")
-.then(res=>{
-  dispatch(addProductsHome(res.data.items))
-})
-.catch(err=>console.log(err.message))
+dispatch(fetchProductsHome())
+dispatch(fetchProductsCatalogue())
   }, [dispatch])
 
 
-  axios.get("https://rooftop-api-rest-frontend.herokuapp.com/items")
-  .then(res=>{
-    dispatch(addProductsCatalogue(res.data.items))
-    console.log(productsHome)
-  })
-  .catch(err=>console.log(err.message))
-  
 
 
 
@@ -74,7 +65,7 @@ const productsHome= useSelector((state :IStore)=>state.shopStore.products)
           <ImageGallery items={Banner} showFullscreenButton={false}  showPlayButton={false}  autoPlay={true}  slideDuration={2500} slideInterval={6000}/>
 
 <div className="container-products-home">
-{productsHome.map(product=><Product key={product.id}  product={product}/>)   }
+{shuffle(productsHome).map(product=><Product key={product.id}  product={product}/>)   }
 
 </div>
 
