@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import { IProduct } from '../interfaces/iShopStore'
+import { IProduct , IQuestion} from '../interfaces/iShopStore'
 var relativeTime = require('dayjs/plugin/relativeTime')
 dayjs.extend(relativeTime)
 declare module 'dayjs' {
@@ -21,3 +21,7 @@ declare module 'dayjs' {
     }else{
     return dayjs(product?.offer.expires_at).format('DD/MM/YYYY')}
   }
+
+  export const dateQuestion=(question:IQuestion)=>{
+    return dayjs(question?.sent_at).format('DD/MM/YYYY')}
+  

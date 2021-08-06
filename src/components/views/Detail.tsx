@@ -65,14 +65,19 @@ const Detail: React.FunctionComponent = () => {
               )}
             </div>
           </div>
+          
+
           <div className="container-questions">
+          <h2>Preguntas y respuestas</h2>
+          <Form id = {id} />
+          <h3>Últimas realizadas</h3>
             {questions.map((question, index) => (
               <Question key={index} question={question} />
             ))}
           </div>
 
           
-<Form id = {id} />
+
 
 
         </div>

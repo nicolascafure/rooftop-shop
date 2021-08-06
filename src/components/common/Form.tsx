@@ -10,7 +10,6 @@ type Inputs = {
 
 export interface FormProps {
     id :string
-    
 }
  
 const Form: React.FunctionComponent<FormProps> = ({id}) => {
@@ -33,9 +32,9 @@ const Form: React.FunctionComponent<FormProps> = ({id}) => {
       };
 
 
-    return (  
-
-<form onSubmit={handleSubmit(onSubmit)}>
+    return (  <div className="container-form">
+<h3>Haz tu pregunta</h3>
+<form  onSubmit={handleSubmit(onSubmit)}>
             <label>Ingresa tu email</label>
             <input
               type="text"
@@ -47,7 +46,7 @@ const Form: React.FunctionComponent<FormProps> = ({id}) => {
             />
             {errors.email?.type === "required" &&
               "El campo de email es requerido."}
-            {errors.email?.type === "patterm" && "Ingrese un email valido."}
+            {errors.email?.type === "pattern" && "Ingrese un email valido."}
 
             <textarea
               placeholder="Escribi tu pregunta..."
@@ -66,7 +65,7 @@ const Form: React.FunctionComponent<FormProps> = ({id}) => {
 
             <input type="submit" />
           </form>
-
+          </div>
 
     );
 }
