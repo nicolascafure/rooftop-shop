@@ -11,13 +11,20 @@ import { useDispatch } from "react-redux";
 import { addQuestions } from "../redux/actions/product";
 import Question from "../components/Question";
 
-export interface DetailProps {}
+import { useForm, SubmitHandler } from "react-hook-form";
+
+type Inputs = {
+ email: string,
+  message: string,
+};
 
 interface ParamTypes {
   id: string;
 }
 
-const Detail: React.FunctionComponent<DetailProps> = () => {
+
+
+const Detail: React.FunctionComponent = () => {
   const { id } = useParams<ParamTypes>();
   const dispatch = useDispatch();
 
@@ -40,7 +47,8 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
       })
       .catch((err) => console.log(err.message));
   }, [dispatch]);
-
+  const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+  const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
   return (
     <>
       {product !== undefined ? (
@@ -69,9 +77,32 @@ const Detail: React.FunctionComponent<DetailProps> = () => {
               )}
             </div>
           </div>
-<div className="container-questions">
-          {questions.map((question,index)=><Question key={index} question={question}/>)}
+          <div className="container-questions">
+            {questions.map((question, index) => <Question key={index} question={question} />)}
           </div>
+
+          <form onSubmit={handleSubmit(onSubmit)}>
+          <label>Ingresa tu email</label>
+      <input
+        type="text"
+        {...register("email", {
+          required: true,
+          pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        })}
+      />
+  {errors.email?.type === 'required' && "El campo de email es requerido."}
+  {errors.email?.type === 'patterm' && "Ingrese un email valido."}
+  
+      <textarea placeholder="Escribi tu pregunta..."  {...register("message", { required: true,maxLength: 500 , minLength:10 })} />
+      {errors.message?.type === 'required' && "El campo de mensaje es requerido."}
+      {errors.message?.type === 'maxLength' && "El mensaje no puede superar los 500 caracteres."}
+      {errors.message?.type === 'minLength' && "El mensaje debe tener un minimo de 10 caracteres."}
+      
+
+      
+      <input type="submit" />
+    </form>
+
 
 
         </div>
