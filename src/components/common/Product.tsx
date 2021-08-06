@@ -11,10 +11,11 @@ export interface ProductProps {
 const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
 
   return (
-    <Link to={`/detail/${product.id}`}>
+    <Link to={`/detail/${product.id}`} className="none">
     <div className="product">
        <div className= "container-product-img">
       <img src={product.images[1]}></img>
+      {product.offer===null?null: <p className="discount">{discount(product)}% OFF</p>}
       </div> 
       {product.offer === null ? (
         <div className="offer">
@@ -25,7 +26,7 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
         
           <p className="price-offer">{product.currency} {product.offer.price}</p>
           <p className="last-price">{product.currency} {product.price}</p>
-          <p>{discount(product)}% OFF</p>
+         
         </div>
       )}
          <h3 className="product-title">{product.title}</h3>

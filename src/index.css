@@ -52,6 +52,11 @@ body {
 
 /*product */ 
 
+
+.center{
+  display: flex;
+  justify-content: center;
+}
 .container-products-home{
   margin: 40px 0;
 display: flex;
@@ -62,13 +67,23 @@ flex-wrap: wrap;
 
 .product{
   width: 250px;
-  border: 1px solid black;
+  border: 1px solid rgb(218, 218, 218);
   border-radius: 15px;
   margin-bottom: 20px;
-}
+  background-color: rgba(219, 219, 219, 0.267);
+  box-shadow: 0px 2px 8px #00000029;
 
+}
+.product:hover{
+  box-shadow: 2px 4px 10px #00000029;
+  border: 1px solid rgba(87, 86, 86, 0.418);
+
+
+}
 .container-product-img{
   width: 100%;
+  display: inline-block;
+  position: relative;
 }
 .container-product-img img{
   width: 100%;
@@ -78,32 +93,51 @@ flex-wrap: wrap;
   display: flex;
   justify-content: space-evenly;
 }
-
+.none{
+  text-decoration: none;
+}
 .product-title{
   font-size: 15px;
   text-align: center;
+  font-weight: 400;
+  color: #000;
+  margin-top: 0;
+  padding-bottom: 5px;
+
+
 }
 
 .price-offer{
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
-  color: rgb(11, 138, 0);
+  color: rgb(11, 95, 3);
 }
-
+.discount{
+  position: absolute;
+  top: 70%;
+  right: 7%;
+  padding: 5px;
+  background-color: rgb(57, 114, 4);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  
+}
 .price{
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
+  color: #000;
 }
 
 .last-price{
-  font-size: 15px;
-  font-weight: 200;
+  font-size: 17px;
+  font-weight: 300;
   color: rgb(165, 0, 8);
   text-decoration:line-through
 }
 
 .offer{
-  padding: 10px;
+  padding: 0px;
 }
 
 
