@@ -48,7 +48,17 @@ const Detail: React.FunctionComponent = () => {
       .catch((err) => console.log(err.message));
   }, [dispatch]);
   const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
-  const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+
+  const onSubmit: SubmitHandler<Inputs> = (data) =>{ 
+    axios.post( `https://rooftop-api-rest-frontend.herokuapp.com/questions?item_id=${id}`, { data})
+    .then(res => {
+      console.log(res);
+      console.log(res.data.message);
+    })
+   
+}
+  
+console.log(watch("email"))
   return (
     <>
       {product !== undefined ? (
