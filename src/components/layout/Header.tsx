@@ -7,7 +7,7 @@ const Header: React.FunctionComponent = () => {
         <div className="contenedor-nav"><div className="logo-top"><img src={logo} alt=""></img></div>
          <nav>      
          <Link to="/">HOME</Link>
-         <Link to="/catalogo">CATALOGO</Link>
+         <Link to="/catalogo/1">CATALOGO</Link>
        </nav></div>
      );
 }
