@@ -70,7 +70,7 @@ const Detail: React.FunctionComponent = () => {
           <div className="container-questions">
           <h2>Preguntas y respuestas</h2>
           <Form id = {id} />
-          <h3>Últimas realizadas</h3>
+           {questions.length===0 ? null:<h3>Últimas realizadas</h3>}
             {questions.map((question, index) => (
               <Question key={index} question={question} />
             ))}

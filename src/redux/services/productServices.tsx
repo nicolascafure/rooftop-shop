@@ -1,6 +1,8 @@
 import { addProductsCatalogue, addProductsHome , addQuestions} from "../actions/product"
 import axios from "axios"
 import { Dispatch } from "redux";
+import Swal from 'sweetalert2'
+
 
 
 export const fetchProductsHome=()=>{
@@ -9,7 +11,14 @@ export const fetchProductsHome=()=>{
         .then(res=>{
           dispatch(addProductsHome(res.data.items))
         })
-        .catch(err=>console.log(err.message))
+        .catch(err=>
+          Swal.fire({
+            title: err.message,
+            text: 'Error al traer los datos del servidor',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          }))
+         
 }}
 
 export const fetchProductsCatalogue=()=>{
@@ -18,7 +27,11 @@ export const fetchProductsCatalogue=()=>{
         .then(res=>{
           dispatch(addProductsCatalogue(res.data.items))
         })
-        .catch(err=>console.log(err.message))
+        .catch(err=>Swal.fire({
+          title: err.message,
+          text: 'Error al traer los datos del servidor',
+          icon: 'error',
+          confirmButtonText: 'OK'}))
 }}
 
 
@@ -31,5 +44,9 @@ export const fetchProductQuestions=(id:string)=>{
         .then((res) => {
           dispatch(addQuestions(res.data));
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => Swal.fire({
+          title: err.message,
+          text: 'Error al traer los datos del servidor',
+          icon: 'error',
+          confirmButtonText: 'OK'}));
 }}

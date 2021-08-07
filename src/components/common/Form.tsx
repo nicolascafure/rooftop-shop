@@ -1,6 +1,7 @@
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import axios from "axios"
+import Swal from 'sweetalert2'
 
 type Inputs = {
   email: string;
@@ -26,9 +27,18 @@ const Form: React.FunctionComponent<FormProps> = ({id}) => {
             { data }
           )
           .then((res) => {
+            Swal.fire({
+              title: res.data.message,
+              icon: 'success',
+              confirmButtonText: 'OK'
+            })
             console.log(res);
-            console.log(res.data.message);
-          });
+          })
+          .catch((err) => Swal.fire({
+            title: err.message,
+            text: 'Error al enviar los datos al servidor',
+            icon: 'error',
+            confirmButtonText: 'OK'}));
       };
 
 
