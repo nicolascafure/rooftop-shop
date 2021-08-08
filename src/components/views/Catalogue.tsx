@@ -28,17 +28,24 @@ return(productsCatalogue.slice(sliceFrom,sliceTo))
 getPage(page)
      })
 
+     const SearchWithText=(e:React.ChangeEvent<HTMLInputElement>)=>{
+      let productsFilter = productsCatalogue.filter(product=> product.title.includes(e.target.value))
+      console.log(productsFilter)
+     }
+
 const pageNumber=[1,2,3,4,5,6,7,8,9]
 return(
 
 <div className="container-catalogue">
 <h1>Catalogo de productos</h1>
+<input  onInput={SearchWithText}/>
 <div className="container-products-catalogue">
 {getPage(page).map(product=><Product key={product.id}  product={product}/>)   }
 </div>
 <div className="pagination" >   
   {Number(page)===1?null: <Link className="button-pagination" to={`/catalogo/${Number(page)-1}`}>{"<"}</Link>}
-{pageNumber.map(number=><Link key={number} className={Number(page)===number? "selected-page":"page"}  to={`/catalogo/${number}`}>{number}</Link>)}
+{pageNumber.map(number=><Link key={number}
+ className={Number(page)===number? "selected-page":"page"}  to={`/catalogo/${number}`}>{number}</Link>)}
          {Number(page)===9?null: <Link className="button-pagination" to={`/catalogo/${Number(page)+1}`}>{">"}</Link>}
        </div>
 </div>

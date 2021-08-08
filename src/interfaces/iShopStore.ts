@@ -20,6 +20,7 @@ sent_at:string
     products: IProduct[] ,
     productsCatalogo: IProduct[],
     questions: IQuestion[]
+    productsFilter:IProduct[]
     
  
 
