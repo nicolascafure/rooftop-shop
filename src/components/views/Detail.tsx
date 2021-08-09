@@ -13,8 +13,6 @@ import Form from "../common/Form";
 import{dateOffer} from "../../utils/Time";
 import {addToCart} from "../../redux/actions/product"
 
-
-
 interface ParamTypes {
   id: string;
 }
@@ -65,7 +63,7 @@ const Detail: React.FunctionComponent = () => {
                 </>
               )}
 
-<button onClick={()=>dispatch(addToCart(product))}>Agregar al carrito</button>
+<button className="button-add-to-cart" onClick={()=>dispatch(addToCart(product))}>Agregar al carrito</button>
             </div>
           </div>
           

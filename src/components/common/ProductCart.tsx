@@ -10,7 +10,7 @@ const dispatch = useDispatch()
     return ( 
 <div className= "container-product-cart">
 <div className="product-cart-img">
-<img src={product.images[0]}></img>
+<img src={product.images[0]} alt="product"></img>
 </div>
 <div className="product-cart-data">
 <h3 className="product-cart-title">{product.title}</h3>

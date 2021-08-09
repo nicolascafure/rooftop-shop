@@ -12,8 +12,9 @@ const Cart: React.FunctionComponent = () => {
   <> <h2>Carrito de compras</h2>
     <div className="container-cart">
 {cart.map(product=> <ProductCart key={product.cartId}  product={product}/>)}
+<button className="button-buy">Comprar</button>
 </div> 
-<button>Comprar</button>
+
 </>} 
 </div>
 </>

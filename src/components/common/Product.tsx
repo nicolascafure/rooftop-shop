@@ -16,7 +16,7 @@ const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
     <Link to={`/detail/${product.id}`} className="none">
     <div className="product">
        <div className= "container-product-img">
-      <img src={product.images[1]}></img>
+      <img src={product.images[1]} alt="product"></img>
       {product.offer===null?null: <p className="discount">{discount(product)}% OFF</p>}
       </div> 
       {product.offer === null ? (
