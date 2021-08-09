@@ -4,12 +4,12 @@
 
 ## ¿Que es  ROOFTOP SHOP?
 
-Una web app que permite al negocio vender sus productos vía internet de una manera fácil y práctica. Actualmente el proyecto se encuentra en su **versión BETA.**
+Una web app que permite al negocio vender sus productos vía internet de una manera fácil y práctica. Actualmente el proyecto se encuentra en su **versión BETA.** . El sitio esta adaptado a dispositivos móviles.
 
 Contiene:
 
 1.  *HOME:* El mismo cuenta con 3 banner de publicidad deseada y 4 productos aleatorios con sus respectivos precios , promociones y una foto para poder identificar a cada uno de ellos. 
-2. *CATALOGO:*  Con el listado de productos completo con un buscador que filtrara los resultados en el instante.
+2. *CATALOGO:*  Con el listado de productos completo con un buscador que filtrara los resultados en el instante y un paginado que le permitira ver un total de 6 productos por página.
 3. *DETALLE DEL PRODUCTO:* Contiene el detalle del producto seleccionado. Con sus fotos, precios , promociones . También contiene una sección donde se pueden observar las preguntas que realizan los potenciales clientes con sus respectivas respuestas, en la misma el potencial cliente podrá sacarse la duda mediante un formulario.
 
 4. *CARRITO DE COMPRAS :* Contiene los productos seleccionados por el cliente para su posterior compra / adquisición.
@@ -20,7 +20,7 @@ Contiene:
 
 ## Detalles del proyecto
 
-El proyecto esta realizado en REACT , en el lenguaje TYPESCRIPT. El manejo de estados del mismo se realiza mediante REACT REDUX . Los estilos son totalmente personalizados y se encuentran en lenguaje CSS. 
+El proyecto esta realizado en REACT , en el lenguaje TYPESCRIPT. El manejo de estados del mismo se realiza mediante REACT REDUX . La Comunicacion HTTP es mediante axios . Los estilos son totalmente personalizados y se encuentran en lenguaje CSS. 
 
 
 

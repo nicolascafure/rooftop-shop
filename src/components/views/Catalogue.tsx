@@ -44,7 +44,7 @@ const Catalogo: React.FunctionComponent = () => {
   const pageNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <div className="container-catalogue">
-      <h1>Catalogo de productos</h1>
+      <h1 className="title-catalogue">Catalogo de productos</h1>
 
       <div className="container-products-catalogue">
         <input

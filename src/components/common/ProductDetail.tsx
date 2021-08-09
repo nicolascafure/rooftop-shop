@@ -38,8 +38,8 @@ const ProductDetail: React.FunctionComponent<ProductDetailProps> = ({
             <p className="last-price">
               {product.currency} {product.price}
             </p>
-            <p>{discount(product)}% OFF</p>
-            <p>
+            <p className="discount-detail">{discount(product)}% OFF</p>
+            <p className="offer-time-detail">
               Offer expires in {timeTo(product)} at {dateOffer(product)}
             </p>
           </>
