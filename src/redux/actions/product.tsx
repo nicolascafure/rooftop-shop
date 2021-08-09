@@ -21,4 +21,11 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
         payload: questions
       }
     }
-  
+
+
+    export const filterProducts = (e:string)=>{
+      return{
+        type: "FILTER_PRODUCTS",
+        payload: e
+      }
+    }

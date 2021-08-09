@@ -5,7 +5,7 @@ import {IState,IProduct, IQuestion} from "../../interfaces/iShopStore"
 type Action= {type:"GET_PRODUCTS_HOME", payload: IProduct[]}
 type ActionB= {type:"GET_PRODUCTS_CATALOGUE", payload: IProduct[]}
 type ActionC={type:"GET_PRODUCT_QUESTIONS" ,payload:IQuestion[]}
-type ActionD= {type:"FILTER_PRODUCTS" , payload:IProduct[]}
+type ActionD= {type:"FILTER_PRODUCTS" , payload:string}
 
 
 
@@ -34,10 +34,11 @@ export const productReducer=(state=INITIAL_STATE,action: Action|ActionB|ActionC|
                         ...state,questions:action.payload
                     }
 
-                    case "FILTER_PRODUCTS":
-                    return{...state,productsFilter: action.payload}
-
-
+              case "FILTER_PRODUCTS":
+                let newProducts =  state.productsCatalogo.filter(product=> product.title.includes(action.payload))
+                    return{
+                        ...state,productsFilter:newProducts
+                    }
             default:
                 return state
     }

@@ -7,6 +7,8 @@ import {
   Link,
   useParams
 } from "react-router-dom";
+import {filterProducts} from "../../redux/actions/product"
+import {useDispatch} from "react-redux"
 
 
 interface ParamTypes {
@@ -16,22 +18,27 @@ interface ParamTypes {
 const Catalogo: React.FunctionComponent = () => {
 
 const productsCatalogue= useSelector((state :IStore)=>state.shopStore.productsCatalogo)
+const productosFiltrados =useSelector((state :IStore)=>state.shopStore.productsFilter)
 const { page } = useParams<ParamTypes>()
+const dispatch = useDispatch()
 
 const getPage=(page:string)=>{
   const ProductsPerPage =6
   const sliceTo = ProductsPerPage* Number(page)
   const sliceFrom = sliceTo -ProductsPerPage
-return(productsCatalogue.slice(sliceFrom,sliceTo))
-}
+  if(productosFiltrados.length===0){
+    return productsCatalogue.slice(sliceFrom,sliceTo)
+  }else{
+return(productosFiltrados.slice(sliceFrom,sliceTo))
+}}
+
   useEffect(() => {
 getPage(page)
      })
 
-     const SearchWithText=(e:React.ChangeEvent<HTMLInputElement>)=>{
-      let productsFilter = productsCatalogue.filter(product=> product.title.includes(e.target.value))
-      console.log(productsFilter)
-     }
+ const SearchWithText=(e:React.ChangeEvent<HTMLInputElement>)=>{
+dispatch(filterProducts(e.target.value))
+ }
 
 const pageNumber=[1,2,3,4,5,6,7,8,9]
 return(
