@@ -19,8 +19,9 @@ sent_at:string
   export interface IState{
     products: IProduct[] ,
     productsCatalogo: IProduct[],
-    questions: IQuestion[]
-    productsFilter:IProduct[]
+    questions: IQuestion[],
+    productsFilter:IProduct[],
+    searching:boolean
     
  
 

@@ -19,6 +19,8 @@ const Catalogo: React.FunctionComponent = () => {
 
 const productsCatalogue= useSelector((state :IStore)=>state.shopStore.productsCatalogo)
 const productosFiltrados =useSelector((state :IStore)=>state.shopStore.productsFilter)
+const searching =useSelector((state :IStore)=>state.shopStore.searching)
+
 const { page } = useParams<ParamTypes>()
 const dispatch = useDispatch()
 
@@ -26,18 +28,19 @@ const getPage=(page:string)=>{
   const ProductsPerPage =6
   const sliceTo = ProductsPerPage* Number(page)
   const sliceFrom = sliceTo -ProductsPerPage
-  if(productosFiltrados.length===0){
+
+  if(searching===false){
     return productsCatalogue.slice(sliceFrom,sliceTo)
   }else{
 return(productosFiltrados.slice(sliceFrom,sliceTo))
 }}
-
   useEffect(() => {
 getPage(page)
      })
 
  const SearchWithText=(e:React.ChangeEvent<HTMLInputElement>)=>{
 dispatch(filterProducts(e.target.value))
+console.log(productosFiltrados)
  }
 
 const pageNumber=[1,2,3,4,5,6,7,8,9]
@@ -45,8 +48,11 @@ return(
 
 <div className="container-catalogue">
 <h1>Catalogo de productos</h1>
-<input  onInput={SearchWithText}/>
+
 <div className="container-products-catalogue">
+<input className="search-bar" placeholder="Buscar productos.." onInput={SearchWithText}/>
+
+
 {getPage(page).map(product=><Product key={product.id}  product={product}/>)   }
 </div>
 <div className="pagination" >   

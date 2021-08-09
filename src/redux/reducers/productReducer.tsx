@@ -9,11 +9,13 @@ type ActionD= {type:"FILTER_PRODUCTS" , payload:string}
 
 
 
+
 const INITIAL_STATE:IState={
     products: [],
     productsCatalogo:[],
     questions:[],
-    productsFilter:[]
+    productsFilter:[],
+    searching: false
 }
 
 
@@ -37,7 +39,7 @@ export const productReducer=(state=INITIAL_STATE,action: Action|ActionB|ActionC|
               case "FILTER_PRODUCTS":
                 let newProducts =  state.productsCatalogo.filter(product=> product.title.includes(action.payload))
                     return{
-                        ...state,productsFilter:newProducts
+                        ...state,productsFilter:newProducts,searching :true
                     }
             default:
                 return state

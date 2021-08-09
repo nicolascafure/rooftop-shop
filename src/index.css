@@ -215,6 +215,10 @@ flex-wrap: wrap;
   width: 60%;
 }
 
+.search-bar{
+  width: 80%;
+  margin-bottom: 20px;
+}
 
 
 /*questions*/
