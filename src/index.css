@@ -839,3 +839,59 @@ textarea ::placeholder {
   background-color: rgba(224, 108, 62, 0.726);
   color: white;
 }
+
+@media screen and (max-width: 700px) {
+
+  .container-detail {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    
+  }
+
+  .detail-data {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .detail-img {
+    width: 100%;
+  }
+  
+
+}
+
+
+@media screen and (max-width: 550px) {
+
+  .contenedor-nav {
+    width: 100%;
+    background-color: rgba(8, 5, 5, 0.904);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px 0;
+    position: fixed;
+    z-index: 22;
+  }
+   
+  
+  
+  .logo-top {
+    width: 20%;
+  }
+  .logo-top img {
+    width: 40px;
+  }
+ 
+  .contenedor-nav nav {
+    width: 60%;
+  }
+  
+  .contenedor-nav nav a {
+    font-size: 12px;
+  }
+  
+
+
+}
