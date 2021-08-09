@@ -4,6 +4,7 @@ import Catalogo from "./components/views/Catalogue";
 import Detail from "./components/views/Detail";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import Cart from "./components/views/Cart";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
@@ -33,6 +34,9 @@ function App() {
           </Route>
           <Route path="/detail/:id">
             <Detail />
+          </Route>
+          <Route path="/cart">
+           <Cart/>
           </Route>
 
           <Route path="/">

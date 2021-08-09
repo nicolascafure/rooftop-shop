@@ -8,6 +8,8 @@ const Header: React.FunctionComponent = () => {
          <nav>      
          <Link to="/">HOME</Link>
          <Link to="/catalogo/1">CATALOGO</Link>
+         <Link to="/cart">CARRITO</Link>
+
        </nav></div>
      );
 }

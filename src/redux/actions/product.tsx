@@ -39,6 +39,5 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
         type: "ADD_PRODUCT_TO_CART",
         payload: newProductCart
       }
-      console.log(newProductCart)
       
         }

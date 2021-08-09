@@ -32,7 +32,7 @@ sent_at:string
     questions: IQuestion[],
     productsFilter:IProduct[],
     searching:boolean,
-    productsCart:object[]
+    productsCart:IProductCart[]
     
  
 
