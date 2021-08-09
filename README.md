@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# ROOFTOP SHOP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## ¿Que es  ROOFTOP SHOP?
 
-### `npm start`
+Una web app que permite al negocio vender sus productos vía internet de una manera fácil y práctica. Actualmente el proyecto se encuentra en su **versión BETA.**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Contiene:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1.  *HOME:* El mismo cuenta con 3 banner de publicidad deseada y 4 productos aleatorios con sus respectivos precios , promociones y una foto para poder identificar a cada uno de ellos. 
+2. *CATALOGO:*  Con el listado de productos completo con un buscador que filtrara los resultados en el instante.
+3. *DETALLE DEL PRODUCTO:* Contiene el detalle del producto seleccionado. Con sus fotos, precios , promociones . También contiene una sección donde se pueden observar las preguntas que realizan los potenciales clientes con sus respectivas respuestas, en la misma el potencial cliente podrá sacarse la duda mediante un formulario.
 
-### `npm test`
+4. *CARRITO DE COMPRAS :* Contiene los productos seleccionados por el cliente para su posterior compra / adquisición.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Detalles del proyecto
 
-### `npm run eject`
+El proyecto esta realizado en REACT , en el lenguaje TYPESCRIPT. El manejo de estados del mismo se realiza mediante REACT REDUX . Los estilos son totalmente personalizados y se encuentran en lenguaje CSS. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Instrucciones de uso
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Tener instalado [node]( https://nodejs.org/es/) con su paquete NPM.
+2. En la consola clonar el repositorio `git clone https://github.com/nicolascafure/rooftop-shop`
+3. Instalar las dependencias del proyecto con `npm install`
+4. Poner en marcha la aplicación con `npm start`
 
-## Learn More
+Una vez realizado los pasos previos podrá visualizar la aplicación desde **http://localhost:3000/**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Para realizar una build del proyecto `npm run build`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Dependencias de la aplicación
+
+- [React Redux](https://react-redux.js.org/)  : *Manejo de estados*
+- [React-image-gallery](https://www.npmjs.com/package/react-image-gallery) : *Galería de imágenes*
+- [React-router-dom](https://reactrouter.com/web/guides/quick-start) : *Manejar el renderizado de los componentes*
+- [Underscore](https://underscorejs.org/) : *Generar un array aleatorio*
+- [UUID](https://www.npmjs.com/package/uuid) : *Generar ID para carrito*
+- [Axios](https://axios-http.com/docs/intro) : *Comunicaciones con APIs*
+- [Daysjs](https://day.js.org/): *Comparaciones y formato fecha.*
+- [React-hook-form](https://react-hook-form.com/) : *Validación de formularios*
+- [Redux-thunk](npmjs.com/package/redux-thunk):  *Escribir acciones que retornan una función* 
+- [Sweet Alert 2](https://sweetalert2.github.io/) : *Alertas personalizadas*
+- Typescript : *Lenguaje utilizado en el proyecto.*
+
+
+
+
+
+## Enlaces 
+
+Además  de la documentación respectiva de cada dependencia y la información tomada del curso de rooftop,  resultaron utiles los siguientes links:
+
+- https://www.youtube.com/watch?v=T6Uw4lGNfp4
+- https://www.youtube.com/watch?v=WpvIihorarA
+- https://www.youtube.com/watch?v=udr2rx_B99w&t=1730s
+- https://www.youtube.com/watch?v=IbJFERe9F9w&t=2439s
+- https://puzzleargentina.teachable.com/
+- https://latteandcode.medium.com/reactjs-la-estructura-de-carpetas-con-la-que-me-siento-mas-comodo-2a8783ad6d45
+
+
+
+
+
+## Agradecimientos...
+
+A ROOFTOP por la posibilidad de capacitarme y darme herramientas para poder ingresar a este mundo laboral tan lindo . En especial a Alejandro que llevo a cabo la capacitación de la mejor forma , de manera profesional y siempre predispuesto a ayudar a todos. 
+
+ 
