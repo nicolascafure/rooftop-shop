@@ -1,4 +1,5 @@
 import { IProductCart } from "../../interfaces/iShopStore";
+import {deleteProductCart} from "../../redux/actions/product"
 export interface ProductCartProps {
     product: IProductCart
 }
@@ -16,7 +17,7 @@ const ProductCart: React.FunctionComponent<ProductCartProps> = ({product}) => {
 ) : (
    <p className="price-cart">{product.currency} {product.offer.price}</p>
 )}
-<button className="delete-product">Eliminar</button>
+<button onClick={()=>deleteProductCart(product.cartId)} className="delete-product">Eliminar</button>
 </div>
 
 </div>

@@ -41,3 +41,12 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
       }
       
         }
+
+        export const deleteProductCart=(id:string)=>{
+          return{
+            type: "DELETE_PRODUCT_CART",
+            payload: id
+          }
+          
+            }
+    
