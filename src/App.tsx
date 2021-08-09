@@ -24,31 +24,28 @@ function App() {
     <>
       <Router>
         <Header />
-<div className="non-header">
-        <Switch>
-          <Route path="/catalogo/:page">
-            <Catalogo />
-          </Route>
-          <Route path="/catalogo">
-            <Catalogo />
-          </Route>
-          <Route path="/detail/:id">
-            <Detail />
-          </Route>
-          <Route path="/cart">
-           <Cart/>
-          </Route>
+        <div className="non-header">
+          <Switch>
+            <Route path="/catalogo/:page">
+              <Catalogo />
+            </Route>
+            <Route path="/catalogo">
+              <Catalogo />
+            </Route>
+            <Route path="/detail/:id">
+              <Detail />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
 
-          <Route path="/">
-            <Home />
-
-            
-          </Route>
-        </Switch>
-        <Footer />
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+          <Footer />
         </div>
       </Router>
-    
     </>
   );
 }
