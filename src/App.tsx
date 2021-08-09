@@ -24,7 +24,7 @@ function App() {
     <>
       <Router>
         <Header />
-
+<div className="non-header">
         <Switch>
           <Route path="/catalogo/:page">
             <Catalogo />
@@ -46,8 +46,9 @@ function App() {
           </Route>
         </Switch>
         <Footer />
+        </div>
       </Router>
-     
+    
     </>
   );
 }

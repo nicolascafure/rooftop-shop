@@ -19,7 +19,10 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 20px 0;
+  padding: 10px 0;
+  position: fixed;
+  z-index: 22;
+
 }
 
 .logo-top {
@@ -50,6 +53,9 @@ body {
   color: rgb(255, 255, 255);
 }
 
+.non-header{
+  padding-top: 100px;
+}
 
 /*product */ 
 
