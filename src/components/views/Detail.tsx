@@ -11,6 +11,7 @@ import Question from "../common/Question";
 import { fetchProductQuestions } from "../../redux/services/productServices";
 import Form from "../common/Form";
 import{dateOffer} from "../../utils/Time";
+import {addToCart} from "../../redux/actions/product"
 
 
 
@@ -34,7 +35,7 @@ const Detail: React.FunctionComponent = () => {
     dispatch(fetchProductQuestions(id));
   }, [dispatch, id]);
 
- 
+
 
   return (
     <>
@@ -60,9 +61,11 @@ const Detail: React.FunctionComponent = () => {
                   </p>
                   <p>{discount(product)}% OFF</p>
                   <p>Offer expires in {timeTo(product)} at {dateOffer(product)}</p>
-                  <button onClick={()=>console.log(dateOffer(product))}></button>
+            
                 </>
               )}
+
+<button onClick={()=>dispatch(addToCart(product))}>Agregar al carrito</button>
             </div>
           </div>
           

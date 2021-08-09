@@ -8,6 +8,16 @@ export interface IProduct{
     images: string[]
   }
 
+  export interface IProductCart{
+    id: number,
+    cartId: string,
+    title: string,
+    currency:string,
+    price:number,
+    offer: any
+    images: string[]
+  }
+
   export interface IQuestion{
     answer: string,
     customer_name: string,
@@ -22,7 +32,7 @@ sent_at:string
     questions: IQuestion[],
     productsFilter:IProduct[],
     searching:boolean,
-    productCart:[]
+    productsCart:object[]
     
  
 

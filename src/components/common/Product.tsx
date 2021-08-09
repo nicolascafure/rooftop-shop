@@ -1,4 +1,5 @@
 import { IProduct } from "../../interfaces/iShopStore";
+
 import {
   Link
 } from "react-router-dom";
@@ -9,6 +10,7 @@ export interface ProductProps {
 }
 
 const Product: React.FunctionComponent<ProductProps> = ({ product }) => {
+
 
   return (
     <Link to={`/detail/${product.id}`} className="none">

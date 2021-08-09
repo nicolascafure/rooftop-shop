@@ -1,4 +1,5 @@
 import {IProduct, IQuestion} from "../../interfaces/iShopStore"
+import { v4 as uuidv4 } from 'uuid';
 
 export const addProductsHome = (products : IProduct[])=>{
 return{
@@ -28,3 +29,16 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
         payload: e
       }
     }
+
+    export const addToCart=(product:IProduct)=>{
+      let newProductCart = {
+        ...product, 
+        cartId: uuidv4()
+      }
+      return{
+        type: "ADD_PRODUCT_TO_CART",
+        payload: newProductCart
+      }
+      console.log(newProductCart)
+      
+        }

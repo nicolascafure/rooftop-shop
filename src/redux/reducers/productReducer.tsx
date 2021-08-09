@@ -1,11 +1,12 @@
 
-import {IState,IProduct, IQuestion} from "../../interfaces/iShopStore"
+import {IState,IProduct, IQuestion,IProductCart} from "../../interfaces/iShopStore"
 
 
 type Action= {type:"GET_PRODUCTS_HOME", payload: IProduct[]}
 type ActionB= {type:"GET_PRODUCTS_CATALOGUE", payload: IProduct[]}
 type ActionC={type:"GET_PRODUCT_QUESTIONS" ,payload:IQuestion[]}
 type ActionD= {type:"FILTER_PRODUCTS" , payload:string}
+type ActionE= {type:"ADD_PRODUCT_TO_CART" , payload:IProductCart}
 
 
 
@@ -15,11 +16,12 @@ const INITIAL_STATE:IState={
     productsCatalogo:[],
     questions:[],
     productsFilter:[],
-    searching: false
+    searching: false,
+    productsCart:[]
 }
 
 
-export const productReducer=(state=INITIAL_STATE,action: Action|ActionB|ActionC|ActionD)=>{
+export const productReducer=(state=INITIAL_STATE,action: Action|ActionB|ActionC|ActionD|ActionE)=>{
     switch(action.type){
         case "GET_PRODUCTS_HOME":
             return{
@@ -41,6 +43,12 @@ export const productReducer=(state=INITIAL_STATE,action: Action|ActionB|ActionC|
                     return{
                         ...state,productsFilter:newProducts,searching :true
                     }
+
+            case "ADD_PRODUCT_TO_CART":
+                return{
+                    ...state,productsCart: [...state.productsCart,action.payload]
+                }
+
             default:
                 return state
     }
