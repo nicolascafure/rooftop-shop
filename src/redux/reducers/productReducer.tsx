@@ -51,6 +51,7 @@ export const productReducer=(state=INITIAL_STATE,action: Action|ActionB|ActionC|
                 }
             case "DELETE_PRODUCT_CART":
                 const newCart= state.productsCart.filter(product=> product.cartId !== action.payload)
+                console.log(newCart)
                     return{...state,productsCart:newCart}
                 
             default:
