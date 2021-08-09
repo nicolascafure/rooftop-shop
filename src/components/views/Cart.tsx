@@ -4,10 +4,13 @@ import ProductCart from "../common/ProductCart";
 import Swal from 'sweetalert2';
 import {resetCart} from "../../redux/actions/product"
 import { useDispatch } from "react-redux";
+import { stopSearch } from '../../redux/actions/product';
+
 
 const Cart: React.FunctionComponent = () => {
     const cart= useSelector((state :IStore)=>state.shopStore.productsCart)
  const dispatch = useDispatch()
+ dispatch(stopSearch())
 
     const buyProducts =()=>{
         Swal.fire({

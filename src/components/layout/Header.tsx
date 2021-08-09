@@ -8,7 +8,7 @@ const Header: React.FunctionComponent = () => {
   const cart= useSelector((state :IStore)=>state.shopStore.productsCart)
     return ( 
 
-        <div className="contenedor-nav"><div className="logo-top"><img src={logo} alt="logo"></img></div>
+        <div className="contenedor-nav"><div className="logo-top"><Link to="/"><img src={logo} alt="logo"></img></Link></div>
          <nav>      
          <Link to="/">HOME</Link>
          <Link to="/catalogo/1">CATALOGO</Link>

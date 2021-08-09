@@ -56,4 +56,12 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
               }
                 }
 
+                export const stopSearch=()=>{
+                  return{
+                    type: "STOP_SEARCH",
+                  }
+                    }
+
+
+
             
