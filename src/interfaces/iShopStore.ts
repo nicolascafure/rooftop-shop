@@ -21,7 +21,8 @@ sent_at:string
     productsCatalogo: IProduct[],
     questions: IQuestion[],
     productsFilter:IProduct[],
-    searching:boolean
+    searching:boolean,
+    productCart:[]
     
  
 

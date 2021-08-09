@@ -24,6 +24,7 @@ const searching =useSelector((state :IStore)=>state.shopStore.searching)
 const { page } = useParams<ParamTypes>()
 const dispatch = useDispatch()
 
+
 const getPage=(page:string)=>{
   const ProductsPerPage =6
   const sliceTo = ProductsPerPage* Number(page)
@@ -35,12 +36,13 @@ const getPage=(page:string)=>{
 return(productosFiltrados.slice(sliceFrom,sliceTo))
 }}
   useEffect(() => {
+
 getPage(page)
      })
+     
 
  const SearchWithText=(e:React.ChangeEvent<HTMLInputElement>)=>{
 dispatch(filterProducts(e.target.value))
-console.log(productosFiltrados)
  }
 
 const pageNumber=[1,2,3,4,5,6,7,8,9]
@@ -51,6 +53,7 @@ return(
 
 <div className="container-products-catalogue">
 <input className="search-bar" placeholder="Buscar productos.." onInput={SearchWithText}/>
+{searching===true && productosFiltrados.length===0?<div className="non-results"> <p>...No hay productos que coincidan con tu busqueda</p><ul><li>Revisá la ortografía de la palabra.</li><li>Revisá mayusculas y minusculas</li></ul></div>:null}
 
 
 {getPage(page).map(product=><Product key={product.id}  product={product}/>)   }

@@ -22,7 +22,6 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
       }
     }
 
-
     export const filterProducts = (e:string)=>{
       return{
         type: "FILTER_PRODUCTS",

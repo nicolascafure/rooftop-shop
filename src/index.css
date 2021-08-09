@@ -190,6 +190,16 @@ flex-wrap: wrap;
   border-radius: 15px;
 }
 
+.search-bar{
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.non-results{
+  margin-bottom: 20px;
+
+}
+
 /* detail*/
 .container-detail{
   display: flex;
@@ -215,10 +225,7 @@ flex-wrap: wrap;
   width: 60%;
 }
 
-.search-bar{
-  width: 80%;
-  margin-bottom: 20px;
-}
+
 
 
 /*questions*/
