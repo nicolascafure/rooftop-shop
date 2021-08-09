@@ -30,7 +30,6 @@ const Form: React.FunctionComponent<FormProps> = ({ id }) => {
           icon: "success",
           confirmButtonText: "OK",
         });
-        console.log(res);
       })
       .catch((err) =>
         Swal.fire({

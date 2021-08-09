@@ -14,7 +14,7 @@ const Cart: React.FunctionComponent = () => {
   const buyProducts = () => {
     Swal.fire({
       title: `Estas seguro de comprar ${cart.length} ${
-        cart.length == 1 ? "producto" : "productos"
+        cart.length === 1 ? "producto" : "productos"
       }?`,
       showCancelButton: true,
       confirmButtonText: `Comprar`,
