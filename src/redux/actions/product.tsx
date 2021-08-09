@@ -47,6 +47,13 @@ export const addProductsCatalogue = (productsCatalogue : IProduct[])=>{
             type: "DELETE_PRODUCT_CART",
             payload: id
           }
-          
+        
             }
     
+            export const resetCart=()=>{
+              return{
+                type: "RESET_CART",
+              }
+                }
+
+            
