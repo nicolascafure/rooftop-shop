@@ -10,17 +10,15 @@ const ProductCart: React.FunctionComponent<ProductCartProps> = ({product}) => {
 <img src={product.images[0]}></img>
 </div>
 <div className="product-cart-data">
-<h3 className="product-title">{product.title}</h3>
+<h3 className="product-cart-title">{product.title}</h3>
 {product.offer === null ? (
- <div className="offer">
-   <p className="price">{product.currency} {product.price}</p>
- </div>
+   <p className="price-cart">{product.currency} {product.price}</p>
 ) : (
- <div className="offer">
-   <p className="price">{product.currency} {product.offer.price}</p>
- </div>
+   <p className="price-cart">{product.currency} {product.offer.price}</p>
 )}
+<button className="delete-product">Eliminar</button>
 </div>
+
 </div>
 
 
